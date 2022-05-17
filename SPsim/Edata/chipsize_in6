@@ -1,0 +1,2221 @@
+generate:0x7fffe5574f00
+generate:0x7fffe5574fb8
+generate:0x7fffe5575070
+generate:0x7fffe5575128
+generate:0x7fffe55751e0
+generate:0x7fffe5575298
+generate:0x7fffe5575350
+generate:0x7fffe5575408
+generate:0x7fffe55754c0
+generate:0x7fffe5575578
+generate:0x7fffe5575630
+generate:0x7fffe55756e8
+generate:0x7fffe55757a0
+generate:0x7fffe5575858
+generate:0x7fffe5575910
+generate:0x7fffe55759c8
+generate:0x7fffe5575a80
+generate:0x7fffe5575bf0
+BEGIN Configuration File: interposer2
+//topology
+topology = mesh;
+k = 8;
+n = 2;
+type = interposer;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+//sim_type=latency;
+sim_type=throughput;
+traffic=uniform;
+packet_size = 1;
+sample_period=5000;
+warmup_periods=1;
+max_samples=11;
+injection_rate=0.012;
+
+creditDelays=creditDelays({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}});
+routingDelays=routingDelays({15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15,15});
+
+isAsync=isAsync({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0});
+
+END Configuration File: interposer2
+BEGIN Configuration File: chiplet16/chip1
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 0;
+cnum=1;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip1
+BEGIN Configuration File: chiplet16/chip2
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 2;
+cnum=2;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip2
+BEGIN Configuration File: chiplet16/chip3
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 4;
+cnum=3;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip3
+BEGIN Configuration File: chiplet16/chip4
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 6;
+cnum=4;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip4
+BEGIN Configuration File: chiplet16/chip5
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 8;
+cnum=5;
+//16
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 1;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip5
+BEGIN Configuration File: chiplet16/chip6
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 10;
+cnum=6;
+//18
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip6
+BEGIN Configuration File: chiplet16/chip7
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 20;
+cnum=7;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip7
+BEGIN Configuration File: chiplet16/chip8
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 22;
+cnum=8;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip8
+BEGIN Configuration File: chiplet16/chip9
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 32;
+cnum=9;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip9
+BEGIN Configuration File: chiplet16/chip10
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 34;
+cnum=10;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip10
+BEGIN Configuration File: chiplet16/chip11
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 36;
+cnum=11;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip11
+BEGIN Configuration File: chiplet16/chip12
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 38;
+cnum=12;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip12
+BEGIN Configuration File: chiplet16/chip13
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 48;
+cnum=13;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip13
+BEGIN Configuration File: chiplet16/chip14
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 50;
+cnum=14;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip14
+BEGIN Configuration File: chiplet16/chip15
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 52;
+cnum=15;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip15
+BEGIN Configuration File: chiplet16/chip16
+//topology
+topology = mesh;
+k = 2;
+n = 2;
+type = chip;
+start_point = 54;
+cnum=16;
+// Routing
+routing_function = dor;
+
+// Flow control
+num_vcs     = 2;
+vc_buf_size = 8;
+wait_for_tail_credit = 1;
+hold_switch_for_packet = 1;
+
+// Router architecture
+vc_allocator = islip;
+sw_allocator = islip;
+alloc_iters  = 1;
+
+credit_delay   = 0;
+routing_delay  = 1;
+vc_alloc_delay = 1;
+sw_alloc_delay = 1;
+st_final_delay = 1;
+
+input_speedup     = 1;
+output_speedup    = 1;
+internal_speedup  = 1.0;
+vc_busy_when_full = 0;
+
+
+//granulaity
+latency_thres=20000.0;
+deadlock_warn_timeout=20000;
+traceStretch=3;
+
+//gating
+doGating=0;
+sleepThreshold=40;
+breakEvenThreshold=80;
+
+
+
+//Syn Traffic
+sim_type=latency;
+traffic=uniform;
+packet_size = 1;
+sample_period=50000;
+warmup_periods=1;
+max_samples=12;
+injection_rate=0.01;
+
+creditDelays=creditDelays({0,0,0,0});
+routingDelays=routingDelays({15,15,15,15});
+vcAllocDelays=vcAllocDelays({15,15,15,15});
+swAllocDelays=swAllocDelays({15,15,15,15});
+stFinalDelays=stFinalDelays({15,15,15,15});
+
+isAsync=isAsync({0,0,0,0});
+isMetaUnstable=isMetaUnstable({0,0,0,0});
+
+creditDelayStdDevs=creditDelayStdDevs({0,0,0,0});
+routingDelayStdDevs=routingDelayStdDevs({0,0,0,0});
+vcAllocDelayStdDevs=vcAllocDelayStdDevs({0,0,0,0});
+swAllocDelayStdDevs=swAllocDelayStdDevs({0,0,0,0});
+stFinalDelayStdDevs=stFinalDelayStdDevs({0,0,0,0});
+
+  
+swAllocThresholds=swAllocThresholds({1,1,1,1});
+swAllocThresholdStdDevs=swAllocThresholdStdDevs({0,0,0,0});
+swAllocMetaStableThresholds=swAllocMetaStableThresholds({1,1,1,1});
+swAllocMetaStableMaxPenalities=swAllocMetaStableMaxPenalities({0,0,0,0});
+
+END Configuration File: chiplet16/chip16
+rid:0 add output _25chan1
+rid:0 add input _25chan0
+rid:1 add output _25chan3
+rid:1 add input _25chan2
+rid:2 add output _25chan9
+rid:2 add input _25chan8
+rid:3 add output _25chan11
+rid:3 add input _25chan10
+rid:4 add output _25chan17
+rid:4 add input _25chan16
+rid:5 add output _25chan19
+rid:5 add input _25chan18
+rid:6 add output _25chan25
+rid:6 add input _25chan24
+rid:7 add output _25chan27
+rid:7 add input _25chan26
+rid:8 add output _25chan5
+rid:8 add input _25chan4
+rid:9 add output _25chan7
+rid:9 add input _25chan6
+rid:10 add output _25chan13
+rid:10 add input _25chan12
+rid:11 add output _25chan15
+rid:11 add input _25chan14
+rid:12 add output _25chan21
+rid:12 add input _25chan20
+rid:13 add output _25chan23
+rid:13 add input _25chan22
+rid:14 add output _25chan29
+rid:14 add input _25chan28
+rid:15 add output _25chan31
+rid:15 add input _25chan30
+rid:16 add output _25chan37
+rid:16 add input _25chan36
+rid:17 add output _25chan39
+rid:17 add input _25chan38
+rid:18 add output _25chan45
+rid:18 add input _25chan44
+rid:19 add output _25chan47
+rid:19 add input _25chan46
+rid:20 add output _25chan49
+rid:20 add input _25chan48
+rid:21 add output _25chan51
+rid:21 add input _25chan50
+rid:22 add output _25chan57
+rid:22 add input _25chan56
+rid:23 add output _25chan59
+rid:23 add input _25chan58
+rid:24 add uselessoutput chan256
+rid:25 add uselessoutput chan256
+rid:26 add uselessoutput chan256
+rid:27 add uselessoutput chan256
+rid:28 add output _25chan53
+rid:28 add input _25chan52
+rid:29 add output _25chan55
+rid:29 add input _25chan54
+rid:30 add output _25chan61
+rid:30 add input _25chan60
+rid:31 add output _25chan63
+rid:31 add input _25chan62
+rid:32 add output _25chan65
+rid:32 add input _25chan64
+rid:33 add output _25chan67
+rid:33 add input _25chan66
+rid:34 add output _25chan73
+rid:34 add input _25chan72
+rid:35 add output _25chan75
+rid:35 add input _25chan74
+rid:36 add output _25chan81
+rid:36 add input _25chan80
+rid:37 add output _25chan83
+rid:37 add input _25chan82
+rid:38 add output _25chan89
+rid:38 add input _25chan88
+rid:39 add output _25chan91
+rid:39 add input _25chan90
+rid:40 add output _25chan69
+rid:40 add input _25chan68
+rid:41 add output _25chan71
+rid:41 add input _25chan70
+rid:42 add output _25chan77
+rid:42 add input _25chan76
+rid:43 add output _25chan79
+rid:43 add input _25chan78
+rid:44 add output _25chan85
+rid:44 add input _25chan84
+rid:45 add output _25chan87
+rid:45 add input _25chan86
+rid:46 add output _25chan93
+rid:46 add input _25chan92
+rid:47 add output _25chan95
+rid:47 add input _25chan94
+rid:48 add output _25chan97
+rid:48 add input _25chan96
+rid:49 add output _25chan99
+rid:49 add input _25chan98
+rid:50 add output _25chan105
+rid:50 add input _25chan104
+rid:51 add output _25chan107
+rid:51 add input _25chan106
+rid:52 add output _25chan113
+rid:52 add input _25chan112
+rid:53 add output _25chan115
+rid:53 add input _25chan114
+rid:54 add output _25chan121
+rid:54 add input _25chan120
+rid:55 add output _25chan123
+rid:55 add input _25chan122
+rid:56 add output _25chan101
+rid:56 add input _25chan100
+rid:57 add output _25chan103
+rid:57 add input _25chan102
+rid:58 add output _25chan109
+rid:58 add input _25chan108
+rid:59 add output _25chan111
+rid:59 add input _25chan110
+rid:60 add output _25chan117
+rid:60 add input _25chan116
+rid:61 add output _25chan119
+rid:61 add input _25chan118
+rid:62 add output _25chan125
+rid:62 add input _25chan124
+rid:63 add output _25chan127
+rid:63 add input _25chan126
+rid:0 add output _25chan0
+rid:0 add input _25chan1
+rid:1 add output _25chan2
+rid:1 add input _25chan3
+rid:2 add output _25chan4
+rid:2 add input _25chan5
+rid:3 add output _25chan6
+rid:3 add input _25chan7
+rid:0 add output _25chan8
+rid:0 add input _25chan9
+rid:1 add output _25chan10
+rid:1 add input _25chan11
+rid:2 add output _25chan12
+rid:2 add input _25chan13
+rid:3 add output _25chan14
+rid:3 add input _25chan15
+rid:0 add output _25chan16
+rid:0 add input _25chan17
+rid:1 add output _25chan18
+rid:1 add input _25chan19
+rid:2 add output _25chan20
+rid:2 add input _25chan21
+rid:3 add output _25chan22
+rid:3 add input _25chan23
+rid:0 add output _25chan24
+rid:0 add input _25chan25
+rid:1 add output _25chan26
+rid:1 add input _25chan27
+rid:2 add output _25chan28
+rid:2 add input _25chan29
+rid:3 add output _25chan30
+rid:3 add input _25chan31
+rid:0 add output _25chan32
+rid:0 add input _25chan33
+rid:1 add output _25chan34
+rid:1 add input _25chan35
+rid:2 add output _25chan36
+rid:2 add input _25chan37
+rid:3 add output _25chan38
+rid:3 add input _25chan39
+rid:0 add output _25chan40
+rid:0 add input _25chan41
+rid:1 add output _25chan42
+rid:1 add input _25chan43
+rid:2 add output _25chan44
+rid:2 add input _25chan45
+rid:3 add output _25chan46
+rid:3 add input _25chan47
+rid:0 add output _25chan48
+rid:0 add input _25chan49
+rid:1 add output _25chan50
+rid:1 add input _25chan51
+rid:2 add output _25chan52
+rid:2 add input _25chan53
+rid:3 add output _25chan54
+rid:3 add input _25chan55
+rid:0 add output _25chan56
+rid:0 add input _25chan57
+rid:1 add output _25chan58
+rid:1 add input _25chan59
+rid:2 add output _25chan60
+rid:2 add input _25chan61
+rid:3 add output _25chan62
+rid:3 add input _25chan63
+rid:0 add output _25chan64
+rid:0 add input _25chan65
+rid:1 add output _25chan66
+rid:1 add input _25chan67
+rid:2 add output _25chan68
+rid:2 add input _25chan69
+rid:3 add output _25chan70
+rid:3 add input _25chan71
+rid:0 add output _25chan72
+rid:0 add input _25chan73
+rid:1 add output _25chan74
+rid:1 add input _25chan75
+rid:2 add output _25chan76
+rid:2 add input _25chan77
+rid:3 add output _25chan78
+rid:3 add input _25chan79
+rid:0 add output _25chan80
+rid:0 add input _25chan81
+rid:1 add output _25chan82
+rid:1 add input _25chan83
+rid:2 add output _25chan84
+rid:2 add input _25chan85
+rid:3 add output _25chan86
+rid:3 add input _25chan87
+rid:0 add output _25chan88
+rid:0 add input _25chan89
+rid:1 add output _25chan90
+rid:1 add input _25chan91
+rid:2 add output _25chan92
+rid:2 add input _25chan93
+rid:3 add output _25chan94
+rid:3 add input _25chan95
+rid:0 add output _25chan96
+rid:0 add input _25chan97
+rid:1 add output _25chan98
+rid:1 add input _25chan99
+rid:2 add output _25chan100
+rid:2 add input _25chan101
+rid:3 add output _25chan102
+rid:3 add input _25chan103
+rid:0 add output _25chan104
+rid:0 add input _25chan105
+rid:1 add output _25chan106
+rid:1 add input _25chan107
+rid:2 add output _25chan108
+rid:2 add input _25chan109
+rid:3 add output _25chan110
+rid:3 add input _25chan111
+rid:0 add output _25chan112
+rid:0 add input _25chan113
+rid:1 add output _25chan114
+rid:1 add input _25chan115
+rid:2 add output _25chan116
+rid:2 add input _25chan117
+rid:3 add output _25chan118
+rid:3 add input _25chan119
+rid:0 add output _25chan120
+rid:0 add input _25chan121
+rid:1 add output _25chan122
+rid:1 add input _25chan123
+rid:2 add output _25chan124
+rid:2 add input _25chan125
+rid:3 add output _25chan126
+rid:3 add input _25chan127
+
+Tick: 0M
+===== Time: 5000 =====
+Class 0:
+Minimum packet latency = 62
+Average packet latency = 1301.27
+Maximum packet latency = 4388
+Minimum network latency = 63
+Average network latency = 957.068
+Maximum network latency = 4183
+Slowest packet = 328
+Minimum flit latency = 63
+Average flit latency = 957.068
+Maximum flit latency = 4183
+Slowest flit = 328
+Minimum fragmentation = 0
+Average fragmentation = 0
+Maximum fragmentation = 0
+Minimum injected packet rate = 0 (at node 0)
+Average injected packet rate = 0.00368281
+Maximum injected packet rate = 0.0118 (at node 104)
+Minimum accepted packet rate = 0 (at node 0)
+Average accepted packet rate = 0.00289844
+Maximum accepted packet rate = 0.012 (at node 70)
+Minimum injected flit rate = 0 (at node 0)
+Average injected flit rate = 0.00368281
+Maximum injected flit rate = 0.0118 (at node 104)
+Minimum accepted flit rate = 0 (at node 0)
+Average accepted flit rate = 0.00289844
+Maximum accepted flit rate = 0.012 (at node 70)
+Total number of injected packets = 2357
+Total number of injected flits = 2357
+Average injected packet length = 1
+Total number of accepted packets = 1855
+Total number of accepted flits = 1855
+Average accepted packet length = 1
+Total in-flight flits = 679 (0 measured)
+class 0 latency change    = 1
+class 0 throughput change = 1
+Warmed up ...Time used is 5000 cycles
+===== Time: 10000 =====
+Class 0:
+Minimum packet latency = 139
+Average packet latency = 3039.13
+Maximum packet latency = 7661
+Minimum network latency = 63
+Average network latency = 1049.84
+Maximum network latency = 4593
+Slowest packet = 2534
+Minimum flit latency = 63
+Average flit latency = 1232.97
+Maximum flit latency = 4653
+Slowest flit = 2236
+Minimum fragmentation = 0
+Average fragmentation = 0
+Maximum fragmentation = 0
+Minimum injected packet rate = 0 (at node 0)
+Average injected packet rate = 0.00289375
+Maximum injected packet rate = 0.0112 (at node 87)
+Minimum accepted packet rate = 0 (at node 0)
+Average accepted packet rate = 0.00294219
+Maximum accepted packet rate = 0.0114 (at node 70)
+Minimum injected flit rate = 0 (at node 0)
+Average injected flit rate = 0.00289375
+Maximum injected flit rate = 0.0112 (at node 87)
+Minimum accepted flit rate = 0 (at node 0)
+Average accepted flit rate = 0.00294219
+Maximum accepted flit rate = 0.0114 (at node 70)
+Total number of injected packets = 1852
+Total number of injected flits = 1852
+Average injected packet length = 1
+Total number of accepted packets = 1883
+Total number of accepted flits = 1883
+Average accepted packet length = 1
+Total in-flight flits = 724 (679 measured)
+class 0 latency change    = 0.571828
+class 0 throughput change = 0.0148699
+===== Time: 15000 =====
+Class 0:
+Minimum packet latency = 62
+Average packet latency = 4106.95
+Maximum packet latency = 11914
+Minimum network latency = 63
+Average network latency = 1179.93
+Maximum network latency = 7005
+Slowest packet = 2534
+Minimum flit latency = 63
+Average flit latency = 1267.29
+Maximum flit latency = 7005
+Slowest flit = 2777
+Minimum fragmentation = 0
+Average fragmentation = 0
+Maximum fragmentation = 0
+Minimum injected packet rate = 0 (at node 0)
+Average injected packet rate = 0.00291719
+Maximum injected packet rate = 0.0115 (at node 103)
+Minimum accepted packet rate = 0 (at node 0)
+Average accepted packet rate = 0.00292656
+Maximum accepted packet rate = 0.0123 (at node 66)
+Minimum injected flit rate = 0 (at node 0)
+Average injected flit rate = 0.00291719
+Maximum injected flit rate = 0.0115 (at node 103)
+Minimum accepted flit rate = 0 (at node 0)
+Average accepted flit rate = 0.00292656
+Maximum accepted flit rate = 0.0123 (at node 66)
+Total number of injected packets = 3734
+Total number of injected flits = 3734
+Average injected packet length = 1
+Total number of accepted packets = 3746
+Total number of accepted flits = 3746
+Average accepted packet length = 1
+Total in-flight flits = 880 (873 measured)
+class 0 latency change    = 0.260004
+class 0 throughput change = 0.00533903
+===== Time: 20000 =====
+Class 0:
+Minimum packet latency = 62
+Average packet latency = 5173.87
+Maximum packet latency = 15594
+Minimum network latency = 63
+Average network latency = 1207.95
+Maximum network latency = 7005
+Slowest packet = 2534
+Minimum flit latency = 63
+Average flit latency = 1264
+Maximum flit latency = 7005
+Slowest flit = 2777
+Minimum fragmentation = 0
+Average fragmentation = 0
+Maximum fragmentation = 0
+Minimum injected packet rate = 0 (at node 0)
+Average injected packet rate = 0.00296615
+Maximum injected packet rate = 0.0112667 (at node 104)
+Minimum accepted packet rate = 0 (at node 0)
+Average accepted packet rate = 0.0029651
+Maximum accepted packet rate = 0.0126 (at node 66)
+Minimum injected flit rate = 0 (at node 0)
+Average injected flit rate = 0.00296615
+Maximum injected flit rate = 0.0112667 (at node 104)
+Minimum accepted flit rate = 0 (at node 0)
+Average accepted flit rate = 0.0029651
+Maximum accepted flit rate = 0.0126 (at node 66)
+Total number of injected packets = 5695
+Total number of injected flits = 5695
+Average injected packet length = 1
+Total number of accepted packets = 5693
+Total number of accepted flits = 5693
+Average accepted packet length = 1
+Total in-flight flits = 1062 (1062 measured)
+class 0 latency change    = 0.206213
+class 0 throughput change = 0.0129984
+===== Time: 25000 =====
+Class 0:
+Minimum packet latency = 62
+Average packet latency = 6130.39
+Maximum packet latency = 18864
+Minimum network latency = 63
+Average network latency = 1223.66
+Maximum network latency = 7005
+Slowest packet = 2534
+Minimum flit latency = 63
+Average flit latency = 1264.16
+Maximum flit latency = 7005
+Slowest flit = 2777
+Minimum fragmentation = 0
+Average fragmentation = 0
+Maximum fragmentation = 0
+Minimum injected packet rate = 0 (at node 0)
+Average injected packet rate = 0.00296719
+Maximum injected packet rate = 0.01165 (at node 90)
+Minimum accepted packet rate = 0 (at node 0)
+Average accepted packet rate = 0.002975
+Maximum accepted packet rate = 0.0127 (at node 66)
+Minimum injected flit rate = 0 (at node 0)
+Average injected flit rate = 0.00296719
+Maximum injected flit rate = 0.01165 (at node 90)
+Minimum accepted flit rate = 0 (at node 0)
+Average accepted flit rate = 0.002975
+Maximum accepted flit rate = 0.0127 (at node 66)
+Total number of injected packets = 7596
+Total number of injected flits = 7596
+Average injected packet length = 1
+Total number of accepted packets = 7616
+Total number of accepted flits = 7616
+Average accepted packet length = 1
+Total in-flight flits = 1130 (1130 measured)
+class 0 latency change    = 0.15603
+class 0 throughput change = 0.00332633
+===== Time: 30000 =====
+Class 0:
+Minimum packet latency = 62
+Average packet latency = 7063.24
+Maximum packet latency = 23447
+Minimum network latency = 63
+Average network latency = 1240.67
+Maximum network latency = 7235
+Slowest packet = 2534
+Minimum flit latency = 63
+Average flit latency = 1272.08
+Maximum flit latency = 7235
+Slowest flit = 7952
+Minimum fragmentation = 0
+Average fragmentation = 0
+Maximum fragmentation = 0
+Minimum injected packet rate = 0 (at node 0)
+Average injected packet rate = 0.00294812
+Maximum injected packet rate = 0.0122 (at node 90)
+Minimum accepted packet rate = 0 (at node 0)
+Average accepted packet rate = 0.00295344
+Maximum accepted packet rate = 0.01272 (at node 66)
+Minimum injected flit rate = 0 (at node 0)
+Average injected flit rate = 0.00294812
+Maximum injected flit rate = 0.0122 (at node 90)
+Minimum accepted flit rate = 0 (at node 0)
+Average accepted flit rate = 0.00295344
+Maximum accepted flit rate = 0.01272 (at node 66)
+Total number of injected packets = 9434
+Total number of injected flits = 9434
+Average injected packet length = 1
+Total number of accepted packets = 9451
+Total number of accepted flits = 9451
+Average accepted packet length = 1
+Total in-flight flits = 1244 (1244 measured)
+class 0 latency change    = 0.13207
+class 0 throughput change = 0.00730081
+===== Time: 35000 =====
+Class 0:
+Minimum packet latency = 62
+Average packet latency = 8047.99
+Maximum packet latency = 26570
+Minimum network latency = 63
+Average network latency = 1248.26
+Maximum network latency = 7235
+Slowest packet = 2534
+Minimum flit latency = 63
+Average flit latency = 1273.93
+Maximum flit latency = 7235
+Slowest flit = 7952
+Minimum fragmentation = 0
+Average fragmentation = 0
+Maximum fragmentation = 0
+Minimum injected packet rate = 0 (at node 0)
+Average injected packet rate = 0.0029625
+Maximum injected packet rate = 0.0124333 (at node 90)
+Minimum accepted packet rate = 0 (at node 0)
+Average accepted packet rate = 0.00296016
+Maximum accepted packet rate = 0.0127333 (at node 66)
+Minimum injected flit rate = 0 (at node 0)
+Average injected flit rate = 0.0029625
+Maximum injected flit rate = 0.0124333 (at node 90)
+Minimum accepted flit rate = 0 (at node 0)
+Average accepted flit rate = 0.00296016
+Maximum accepted flit rate = 0.0127333 (at node 66)
+Total number of injected packets = 11376
+Total number of injected flits = 11376
+Average injected packet length = 1
+Total number of accepted packets = 11367
+Total number of accepted flits = 11367
+Average accepted packet length = 1
+Total in-flight flits = 1370 (1370 measured)
+class 0 latency change    = 0.12236
+class 0 throughput change = 0.00226973
+===== Time: 40000 =====
+Class 0:
+Minimum packet latency = 62
+Average packet latency = 8975.15
+Maximum packet latency = 30166
+Minimum network latency = 63
+Average network latency = 1258.58
+Maximum network latency = 7537
+Slowest packet = 2534
+Minimum flit latency = 63
+Average flit latency = 1280.12
+Maximum flit latency = 7537
+Slowest flit = 13351
+Minimum fragmentation = 0
+Average fragmentation = 0
+Maximum fragmentation = 0
+Minimum injected packet rate = 0 (at node 0)
+Average injected packet rate = 0.00294866
+Maximum injected packet rate = 0.0123143 (at node 90)
+Minimum accepted packet rate = 0 (at node 0)
+Average accepted packet rate = 0.00295
+Maximum accepted packet rate = 0.0124286 (at node 66)
+Minimum injected flit rate = 0 (at node 0)
+Average injected flit rate = 0.00294866
+Maximum injected flit rate = 0.0123143 (at node 90)
+Minimum accepted flit rate = 0 (at node 0)
+Average accepted flit rate = 0.00295
+Maximum accepted flit rate = 0.0124286 (at node 66)
+Total number of injected packets = 13210
+Total number of injected flits = 13210
+Average injected packet length = 1
+Total number of accepted packets = 13216
+Total number of accepted flits = 13216
+Average accepted packet length = 1
+Total in-flight flits = 1479 (1479 measured)
+class 0 latency change    = 0.103303
+class 0 throughput change = 0.0034428
+===== Time: 45000 =====
+Class 0:
+Minimum packet latency = 62
+Average packet latency = 9977.07
+Maximum packet latency = 33705
+Minimum network latency = 63
+Average network latency = 1266.36
+Maximum network latency = 7537
+Slowest packet = 2534
+Minimum flit latency = 63
+Average flit latency = 1284.97
+Maximum flit latency = 7537
+Slowest flit = 13351
+Minimum fragmentation = 0
+Average fragmentation = 0
+Maximum fragmentation = 0
+Minimum injected packet rate = 0 (at node 0)
+Average injected packet rate = 0.00292695
+Maximum injected packet rate = 0.012075 (at node 90)
+Minimum accepted packet rate = 0 (at node 0)
+Average accepted packet rate = 0.00293281
+Maximum accepted packet rate = 0.0125 (at node 66)
+Minimum injected flit rate = 0 (at node 0)
+Average injected flit rate = 0.00292695
+Maximum injected flit rate = 0.012075 (at node 90)
+Minimum accepted flit rate = 0 (at node 0)
+Average accepted flit rate = 0.00293281
+Maximum accepted flit rate = 0.0125 (at node 66)
+Total number of injected packets = 14986
+Total number of injected flits = 14986
+Average injected packet length = 1
+Total number of accepted packets = 15016
+Total number of accepted flits = 15016
+Average accepted packet length = 1
+Total in-flight flits = 1551 (1551 measured)
+class 0 latency change    = 0.100422
+class 0 throughput change = 0.00586042
+===== Time: 50000 =====
+Class 0:
+Minimum packet latency = 62
+Average packet latency = 10941.4
+Maximum packet latency = 37813
+Minimum network latency = 63
+Average network latency = 1274.81
+Maximum network latency = 9722
+Slowest packet = 2534
+Minimum flit latency = 63
+Average flit latency = 1291.03
+Maximum flit latency = 9722
+Slowest flit = 16161
+Minimum fragmentation = 0
+Average fragmentation = 0
+Maximum fragmentation = 0
+Minimum injected packet rate = 0 (at node 0)
+Average injected packet rate = 0.00292552
+Maximum injected packet rate = 0.0121778 (at node 90)
+Minimum accepted packet rate = 0 (at node 0)
+Average accepted packet rate = 0.00292986
+Maximum accepted packet rate = 0.0126444 (at node 66)
+Minimum injected flit rate = 0 (at node 0)
+Average injected flit rate = 0.00292552
+Maximum injected flit rate = 0.0121778 (at node 90)
+Minimum accepted flit rate = 0 (at node 0)
+Average accepted flit rate = 0.00292986
+Maximum accepted flit rate = 0.0126444 (at node 66)
+Total number of injected packets = 16851
+Total number of injected flits = 16851
+Average injected packet length = 1
+Total number of accepted packets = 16876
+Total number of accepted flits = 16876
+Average accepted packet length = 1
+Total in-flight flits = 1665 (1665 measured)
+class 0 latency change    = 0.0881397
+class 0 throughput change = 0.00100735
+===== Time: 55000 =====
+Class 0:
+Minimum packet latency = 62
+Average packet latency = 11903.4
+Maximum packet latency = 40886
+Minimum network latency = 63
+Average network latency = 1275.18
+Maximum network latency = 9722
+Slowest packet = 2534
+Minimum flit latency = 63
+Average flit latency = 1289.75
+Maximum flit latency = 9722
+Slowest flit = 16161
+Minimum fragmentation = 0
+Average fragmentation = 0
+Maximum fragmentation = 0
+Minimum injected packet rate = 0 (at node 0)
+Average injected packet rate = 0.00293141
+Maximum injected packet rate = 0.0123 (at node 90)
+Minimum accepted packet rate = 0 (at node 0)
+Average accepted packet rate = 0.00293156
+Maximum accepted packet rate = 0.01242 (at node 66)
+Minimum injected flit rate = 0 (at node 0)
+Average injected flit rate = 0.00293141
+Maximum injected flit rate = 0.0123 (at node 90)
+Minimum accepted flit rate = 0 (at node 0)
+Average accepted flit rate = 0.00293156
+Maximum accepted flit rate = 0.01242 (at node 66)
+Total number of injected packets = 18761
+Total number of injected flits = 18761
+Average injected packet length = 1
+Total number of accepted packets = 18762
+Total number of accepted flits = 18762
+Average accepted packet length = 1
+Total in-flight flits = 1823 (1823 measured)
+class 0 latency change    = 0.0808131
+class 0 throughput change = 0.000580369
+Draining remaining packets ...
+Class 0:
+Remaining flits: 6888 6962 6975 7040 7044 7099 7106 7126 7180 7207 [...] (1437 flits)
+Measured flits: 6888 6962 6975 7040 7044 7099 7106 7126 7180 7207 [...] (1437 flits)
+Class 0:
+Remaining flits: 7040 7099 7126 7207 7214 7320 7321 7342 7371 7372 [...] (1238 flits)
+Measured flits: 7040 7099 7126 7207 7214 7320 7321 7342 7371 7372 [...] (1238 flits)
+Class 0:
+Remaining flits: 7214 7320 7321 7342 7371 7372 7413 7427 7581 7603 [...] (1202 flits)
+Measured flits: 7214 7320 7321 7342 7371 7372 7413 7427 7581 7603 [...] (1202 flits)
+Class 0:
+Remaining flits: 7321 7371 7372 7413 7427 7581 7603 7646 7667 7685 [...] (1173 flits)
+Measured flits: 7321 7371 7372 7413 7427 7581 7603 7646 7667 7685 [...] (1173 flits)
+Class 0:
+Remaining flits: 7413 7603 7646 7667 7685 7689 7735 7781 7797 7853 [...] (1138 flits)
+Measured flits: 7413 7603 7646 7667 7685 7689 7735 7781 7797 7853 [...] (1138 flits)
+Class 0:
+Remaining flits: 7685 7689 7735 7781 7797 7857 7877 7907 7924 7957 [...] (1105 flits)
+Measured flits: 7685 7689 7735 7781 7797 7857 7877 7907 7924 7957 [...] (1105 flits)
+Class 0:
+Remaining flits: 7735 7797 7857 7877 7907 7924 7957 8079 8090 8127 [...] (1068 flits)
+Measured flits: 7735 7797 7857 7877 7907 7924 7957 8079 8090 8127 [...] (1068 flits)
+Class 0:
+Remaining flits: 7924 7957 8079 8090 8127 8141 8185 8241 8272 8288 [...] (1035 flits)
+Measured flits: 7924 7957 8079 8090 8127 8141 8185 8241 8272 8288 [...] (1035 flits)
+Class 0:
+Remaining flits: 8079 8127 8241 8272 8288 8332 8353 8416 8442 8490 [...] (1004 flits)
+Measured flits: 8079 8127 8241 8272 8288 8332 8353 8416 8442 8490 [...] (1004 flits)
+Class 0:
+Remaining flits: 8520 8541 8587 8594 8634 8694 8711 8720 8755 8789 [...] (961 flits)
+Measured flits: 8520 8541 8587 8594 8634 8694 8711 8720 8755 8789 [...] (961 flits)
+Class 0:
+Remaining flits: 8694 8711 8720 8755 8789 8803 8815 8817 8902 8945 [...] (939 flits)
+Measured flits: 8694 8711 8720 8755 8789 8803 8815 8817 8902 8945 [...] (939 flits)
+Class 0:
+Remaining flits: 8803 8815 8817 8902 8979 9000 9002 9049 9081 9122 [...] (907 flits)
+Measured flits: 8803 8815 8817 8902 8979 9000 9002 9049 9081 9122 [...] (907 flits)
+Class 0:
+Remaining flits: 9000 9049 9081 9122 9262 9339 9352 9380 9399 9416 [...] (875 flits)
+Measured flits: 9000 9049 9081 9122 9262 9339 9352 9380 9399 9416 [...] (875 flits)
+Class 0:
+Remaining flits: 9339 9399 9416 9445 9520 9522 9575 9589 9611 9628 [...] (847 flits)
+Measured flits: 9339 9399 9416 9445 9520 9522 9575 9589 9611 9628 [...] (847 flits)
+Class 0:
+Remaining flits: 9628 9822 9827 10021 10027 10046 10127 10153 10155 10177 [...] (814 flits)
+Measured flits: 9628 9822 9827 10021 10027 10046 10127 10153 10155 10177 [...] (814 flits)
+Class 0:
+Remaining flits: 10027 10127 10155 10177 10220 10289 10305 10326 10332 10374 [...] (787 flits)
+Measured flits: 10027 10127 10155 10177 10220 10289 10305 10326 10332 10374 [...] (787 flits)
+Class 0:
+Remaining flits: 10289 10305 10326 10332 10374 10380 10403 10492 10535 10549 [...] (762 flits)
+Measured flits: 10289 10305 10326 10332 10374 10380 10403 10492 10535 10549 [...] (762 flits)
+Class 0:
+Remaining flits: 10492 10549 10668 10677 10712 10758 10764 10818 10824 10840 [...] (727 flits)
+Measured flits: 10492 10549 10668 10677 10712 10758 10764 10818 10824 10840 [...] (727 flits)
+Class 0:
+Remaining flits: 10818 10824 10840 10876 10934 10966 11056 11077 11126 11149 [...] (693 flits)
+Measured flits: 10818 10824 10840 10876 10934 10966 11056 11077 11126 11149 [...] (693 flits)
+Class 0:
+Remaining flits: 11056 11126 11149 11216 11262 11292 11293 11310 11336 11383 [...] (669 flits)
+Measured flits: 11056 11126 11149 11216 11262 11292 11293 11310 11336 11383 [...] (669 flits)
+Class 0:
+Remaining flits: 11292 11336 11486 11503 11504 11511 11536 11573 11584 11622 [...] (638 flits)
+Measured flits: 11292 11336 11486 11503 11504 11511 11536 11573 11584 11622 [...] (638 flits)
+Class 0:
+Remaining flits: 11573 11622 11655 11668 11686 11718 11720 11809 11817 11826 [...] (612 flits)
+Measured flits: 11573 11622 11655 11668 11686 11718 11720 11809 11817 11826 [...] (612 flits)
+Class 0:
+Remaining flits: 11833 11958 12121 12155 12173 12175 12195 12196 12229 12237 [...] (584 flits)
+Measured flits: 11833 11958 12121 12155 12173 12175 12195 12196 12229 12237 [...] (584 flits)
+Class 0:
+Remaining flits: 12305 12338 12377 12426 12454 12479 12537 12588 12867 12896 [...] (556 flits)
+Measured flits: 12305 12338 12377 12426 12454 12479 12537 12588 12867 12896 [...] (556 flits)
+Class 0:
+Remaining flits: 12994 13058 13064 13081 13132 13147 13157 13176 13179 13185 [...] (533 flits)
+Measured flits: 12994 13058 13064 13081 13132 13147 13157 13176 13179 13185 [...] (533 flits)
+Class 0:
+Remaining flits: 13342 13378 13392 13447 13468 13512 13568 13597 13639 13652 [...] (503 flits)
+Measured flits: 13342 13378 13392 13447 13468 13512 13568 13597 13639 13652 [...] (503 flits)
+Class 0:
+Remaining flits: 13639 13662 13667 13717 13787 13793 13895 13914 13930 13991 [...] (479 flits)
+Measured flits: 13639 13662 13667 13717 13787 13793 13895 13914 13930 13991 [...] (479 flits)
+Class 0:
+Remaining flits: 14013 14047 14064 14075 14096 14122 14185 14204 14221 14248 [...] (457 flits)
+Measured flits: 14013 14047 14064 14075 14096 14122 14185 14204 14221 14248 [...] (457 flits)
+Class 0:
+Remaining flits: 14505 14518 14520 14627 14657 14697 14710 14766 14775 14814 [...] (427 flits)
+Measured flits: 14505 14518 14520 14627 14657 14697 14710 14766 14775 14814 [...] (427 flits)
+Class 0:
+Remaining flits: 14766 14823 14829 14889 14890 14905 14923 14926 14929 14934 [...] (402 flits)
+Measured flits: 14766 14823 14829 14889 14890 14905 14923 14926 14929 14934 [...] (402 flits)
+Class 0:
+Remaining flits: 14967 14971 14972 15026 15037 15208 15212 15266 15278 15301 [...] (379 flits)
+Measured flits: 14967 14971 14972 15026 15037 15208 15212 15266 15278 15301 [...] (379 flits)
+Class 0:
+Remaining flits: 15315 15399 15446 15539 15557 15600 15612 15699 15758 15762 [...] (348 flits)
+Measured flits: 15315 15399 15446 15539 15557 15600 15612 15699 15758 15762 [...] (348 flits)
+Class 0:
+Remaining flits: 15762 15802 15849 15866 15891 15892 15904 15919 15934 15962 [...] (327 flits)
+Measured flits: 15762 15802 15849 15866 15891 15892 15904 15919 15934 15962 [...] (327 flits)
+Class 0:
+Remaining flits: 16059 16065 16185 16197 16211 16228 16267 16370 16386 16395 [...] (304 flits)
+Measured flits: 16059 16065 16185 16197 16211 16228 16267 16370 16386 16395 [...] (304 flits)
+Class 0:
+Remaining flits: 16528 16576 16652 16682 16702 16717 16719 16737 16748 16831 [...] (281 flits)
+Measured flits: 16528 16576 16652 16682 16702 16717 16719 16737 16748 16831 [...] (281 flits)
+Class 0:
+Remaining flits: 17026 17032 17079 17099 17148 17213 17232 17237 17327 17355 [...] (254 flits)
+Measured flits: 17026 17032 17079 17099 17148 17213 17232 17237 17327 17355 [...] (254 flits)
+Class 0:
+Remaining flits: 17449 17595 17616 17640 17671 17818 17826 17829 17839 17848 [...] (228 flits)
+Measured flits: 17449 17595 17616 17640 17671 17818 17826 17829 17839 17848 [...] (228 flits)
+Class 0:
+Remaining flits: 17950 18044 18050 18111 18119 18133 18138 18181 18213 18222 [...] (198 flits)
+Measured flits: 17950 18044 18050 18111 18119 18133 18138 18181 18213 18222 [...] (198 flits)
+Class 0:
+Remaining flits: 18337 18405 18413 18425 18475 18523 18599 18677 18709 18792 [...] (180 flits)
+Measured flits: 18337 18405 18413 18425 18475 18523 18599 18677 18709 18792 [...] (180 flits)
+Class 0:
+Remaining flits: 18845 18848 18898 18946 18970 19047 19048 19055 19138 19193 [...] (152 flits)
+Measured flits: 18845 18848 18898 18946 18970 19047 19048 19055 19138 19193 [...] (152 flits)
+Class 0:
+Remaining flits: 19193 19266 19305 19355 19399 19447 19488 19514 19563 19627 [...] (129 flits)
+Measured flits: 19193 19266 19305 19355 19399 19447 19488 19514 19563 19627 [...] (129 flits)
+Class 0:
+Remaining flits: 19852 19864 19882 19889 19926 19936 20007 20013 20019 20065 [...] (100 flits)
+Measured flits: 19852 19864 19882 19889 19926 19936 20007 20013 20019 20065 [...] (100 flits)
+Class 0:
+Remaining flits: 20013 20065 20118 20149 20174 20218 20275 20306 20378 20395 [...] (75 flits)
+Measured flits: 20013 20065 20118 20149 20174 20218 20275 20306 20378 20395 [...] (75 flits)
+Class 0:
+Remaining flits: 20506 20528 20546 20626 20780 20821 20867 20969 20976 21002 [...] (50 flits)
+Measured flits: 20506 20528 20546 20626 20780 20821 20867 20969 20976 21002 [...] (50 flits)
+Class 0:
+Remaining flits: 21349 21363 21459 21464 21490 21519 21614 21618 21667 21695 [...] (32 flits)
+Measured flits: 21349 21363 21459 21464 21490 21519 21614 21618 21667 21695 [...] (32 flits)
+Class 0:
+Remaining flits: 22028 22139 22188 22218 22270 22276 22310 22326 22328 22381 [...] (12 flits)
+Measured flits: 22028 22139 22188 22218 22270 22276 22310 22326 22328 22381 [...] (12 flits)
+Time taken is 101748 cycles
+====== Traffic class 0 ======
+
+Total number of flits generated = 22440, changed lanes = 0
+Overall minimum packet latency = 62 (1 samples)
+Overall average packet latency = 14001.4 (1 samples)
+Overall maximum packet latency = 50639 (1 samples)
+Overall minimum network latency = 63 (1 samples)
+Overall average network latency = 1251.62 (1 samples)
+Overall maximum network latency = 9722 (1 samples)
+Overall minimum flit latency = 63 (1 samples)
+Overall average flit latency = 1265.68 (1 samples)
+Overall maximum flit latency = 9722 (1 samples)
+Overall minimum fragmentation = 0 (1 samples)
+Overall average fragmentation = 0 (1 samples)
+Overall maximum fragmentation = 0 (1 samples)
+Overall minimum injected packet rate = 0 (1 samples)
+Overall average injected packet rate = 0.00293141 (1 samples)
+Overall maximum injected packet rate = 0.0123 (1 samples)
+Overall minimum accepted packet rate = 0 (1 samples)
+Overall average accepted packet rate = 0.00293156 (1 samples)
+Overall maximum accepted packet rate = 0.01242 (1 samples)
+Overall minimum injected flit rate = 0 (1 samples)
+Overall average injected flit rate = 0.00293141 (1 samples)
+Overall maximum injected flit rate = 0.0123 (1 samples)
+Overall minimum accepted flit rate = 0 (1 samples)
+Overall average accepted flit rate = 0.00293156 (1 samples)
+Overall maximum accepted flit rate = 0.01242 (1 samples)
+Overall average injected packet size = 1 (1 samples)
+Overall average accepted packet size = 1 (1 samples)
+Overall average hops = 8.04185 (1 samples)
+Overall throughput of the network (flits/cycle) = 0.4488
+Overall throughput of the network (packets/cycle) = 0.4488
+CSV Result Header , avgFLat,avgFInjRate
+CSV Result ,1265.68,0.00293141
+
+Power Report Header, Frequency, Time, StaticIQ, DynamicIQ, StaticVC, DynamicVC, StaticSA, DynamicSA, StaticST, DynamicST, StaticLink, DynamicLink, NoFlits, ePerFlit
+Power Report,3.9e+08,101748,0.131875,0.00672309,0.00749762,0.000197034,0.00224928,0.000176814,0.477597,0.002237,0.0905466,0.00458256,22440,8.41597e-09
+
+*****************************************
+Total run time 35.8999
+generate:0x7fffe5574970
+delete:0x7fffe5574970
+L = 2 K = 8.1 M = 2 N = 1
+-----------------------------------------
+- OCN Power Summary
+- Completion Time:         101748
+- Flit Widths:            64
+- Channel Wire Power:      0.617342
+- Channel Clock Power:     1.46183
+- Channel Retiming Power:  0.00767013
+- Channel Leakage Power:   0.551082
+- Input Read Power:        0.0194662
+- Input Write Power:       0.0194662
+- Input Leakage Power:     0.113246
+- Switch Power:            0.0422092
+- Switch Control Power:    0.0218553
+- Switch Leakage Power:    0.771052
+- Output DFF Power:        0.00453696
+- Output Clk Power:        0.727126
+- Output Control Power:    0.00234145
+- Total Power:             4.35922
+-----------------------------------------
+
+-----------------------------------------
+- OCN Area Summary
+- Channel Area:  0.109536
+- Switch  Area:  0.241592
+- Input  Area:   0.120796
+- Output  Area:  0.0201327
+- Total Area:    0.492056
+-----------------------------------------
+CSV Power Result Header , Completion Time, Channel Wire, Channel Clock, Channel Retiming, Channel Leakage, Input Read, Input Write, Input Leakage, Switch Power, Switch Control, Switch Leakage, Output DFF, Output Clk, Output Control
+CSV Power Result , 101748, 0.617342, 1.46183, 0.00767013, 0.551082, 0.0194662, 0.0194662, 0.113246, 0.0422092, 0.0218553, 0.771052, 0.00453696, 0.727126, 0.00234145
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
+delete:0x7fffe5574970
