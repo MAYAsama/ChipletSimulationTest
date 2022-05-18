@@ -25,7 +25,7 @@ SPsim is a NoC simulator capable of modular design of each sub-network in a 2.5D
 
 ## How to run
 
-SPsim can run 2D NoC simulations with a single configuration file or 2.5D simulation with multiple configuration files with type of interposer and chiplet
+SPsim can run 2D NoC simulation with a single configuration file or 2.5D simulation with multiple configuration files with type of interposer and chiplet
 
 > ./booksim `<configuration file>` [(over ride configuration separated by space) eg wait_for_tail_credit=1]
 
@@ -33,7 +33,7 @@ SPsim can run 2D NoC simulations with a single configuration file or 2.5D simula
 
 ## Configuration parameters
 All information used to configure a simulation is passed through one or more configuration files.
-Major configuration parameters for the simulator can be found in the above configure files.
+Major configuration parameters for the simulator can be found in the configure files mentioned above.
 Additional description can be found in the configuration parameter class file booksim_config.cpp.
 A user can incorporate additional options by changing the this file.
 
