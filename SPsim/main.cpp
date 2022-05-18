@@ -103,8 +103,7 @@ void nodepair( BookSimConfig const  config[],long long int configsize)   //for m
 
 bool Simulate(BookSimConfig const  config[],long long int configsize)
 {
-  vector<Network *> net;
-//gyj  
+  vector<Network *> net;                          //gyj 
   deque<TimedModule*> _25timed_modules;
   vector<FlitChannel*> _25chan;
   vector<CreditChannel*> _25chan_cred;
@@ -167,18 +166,16 @@ bool Simulate(BookSimConfig const  config[],long long int configsize)
   cout << "\n*****************************************\n";
   cout << "Total run time " << total_time << endl;
 
-  for (long long int i = 0; i < subnets; ++i)
+  /*for (long long int i = 0; i < subnets; ++i)
   {
-
     ///Power analysis
     if (config[0].GetLongInt("sim_power") > 0)
     {
       Power_Module pnet(net[i], config[0]);
       pnet.run();
     }
-
     //delete net[i];
-  }
+  }*/
   for(int i=0;i<configsize;i++)
   {
     delete net[i];
@@ -236,7 +233,7 @@ int main(int argc, char **argv)
   bool result = Simulate(config,configsize);
 //need to modify later
   
-  /*if (asyncConfig[0]->doGating)
+  if (asyncConfig[0]->doGating)
   {
     long long int totalViableIdleTicksSum = 0;
     long long int totalViableGatedTicksSum = 0;
@@ -286,7 +283,7 @@ int main(int argc, char **argv)
     cout << "Overall viable idle times, " << totalViableIdleTimesSum << endl;
     cout << "Overall gated ticks, " << totalViableGatedTicksSum << endl;
     cout << "Overall gated times, " << totalGatedTimesSum << endl;
-  }*/
+  }
 for(long long int i=0;i<configsize;i++)
 {
   delete asyncConfig[i];
