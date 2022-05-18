@@ -10,14 +10,18 @@
 
 SPsim is a NoC simulator capable of modular design of each sub-network in a 2.5D NoC. With the node mapping-based routing mechanism and the event queue-based handshake communication scheme, we can correctly reflect the characteristics of 2.5D NoC and perform fast simulations. SPsim has been verified against other RTL verified simulators.
 
+## Operating System
+
+Linux 
+
 ## Setup
 
 **1. Required Dependencies**
 
--gcc
--g++
--flex
--bison
+#### gcc
+#### g++
+#### flex
+#### bison
 
 **2. Compiling**
 
