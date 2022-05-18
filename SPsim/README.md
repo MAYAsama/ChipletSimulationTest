@@ -14,10 +14,10 @@ SPsim is a NoC simulator capable of modular design of each sub-network in a 2.5D
 
 **1. Required Dependencies**
 
-### gcc
-### g++
-### flex
-### bison
+-gcc
+-g++
+-flex
+-bison
 
 **2. Compiling**
 
